@@ -1,0 +1,11 @@
+[package]
+name = "rustyfresh"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+pyo3 = { version = "0.18", features = ["extension-module"] }
+ndarray = "0.15"
+
+[dev-dependencies]
+pyo3 = "0.18"
