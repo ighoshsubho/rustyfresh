@@ -3,14 +3,14 @@ from setuptools_rust import Binding, RustExtension
 
 setup(
     name="rustyfresh",
-    version="0.1.0",
+    version="0.1.4",
     description="A Rust-based alternative to tsfresh for time series feature extraction.",
     long_description=open("../README.md").read(),
     long_description_content_type="text/markdown",
     author="ighoshsubho",
     author_email="ighoshsubho@gmail.com",
     url="https://github.com/ighoshsubho/rustyfresh",
-    rust_extensions=[RustExtension("rustyfresh.rustyfresh", binding=Binding.PyO3)],
+    rust_extensions=[RustExtension("rustyfresh.rustyfresh", "../Cargo.toml", binding=Binding.PyO3)],
     packages=["rustyfresh"],
     classifiers=[
         "Programming Language :: Python :: 3",
