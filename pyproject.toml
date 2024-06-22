@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "rustyfresh"
-version = "0.1.0"
+version = "1.0.0"
 description = "A Rust-based alternative to tsfresh for time series feature extraction."
 authors = [
     { name = "Subho Ghosh", email = "ighoshsubho@gmail.com" }
