@@ -1,32 +1,33 @@
-# name: Publish to PyPI
+name: Publish to PyPI
 
-# on:
-#   push:
-#     tags:
-#       - "v*"
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - uses: actions/checkout@v2
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v3
 
-#       - name: Set up Python
-#         uses: actions/setup-python@v2
-#         with:
-#           python-version: "3.8"
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
 
-#       - name: Install dependencies
-#         run: |
-#           python -m pip install --upgrade pip
-#           pip install maturin twine
+      - name: 🛠️ Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
 
-#       - name: Build package
-#         run: maturin build --release
+      - name: 📦 Install maturin
+        run: pip install maturin
 
-#       - name: Publish package
-#         env:
-#           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-#           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-#         run: twine upload target/wheels/*
+      - name: 🚀 Publish to PyPI
+        env:
+          MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        run: maturin publish

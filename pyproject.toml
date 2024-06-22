@@ -1,0 +1,31 @@
+[build-system]
+requires = ["maturin>=0.12"]
+build-backend = "maturin"
+
+[project]
+name = "rustyfresh"
+version = "0.1.0"
+description = "A Rust-based alternative to tsfresh for time series feature extraction."
+authors = [
+    { name = "Subho Ghosh", email = "ighoshsubho@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ighoshsubho/rustyfresh"
+
+[tool.setuptools.package-dir]
+"" = "python/rustyfresh"
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.maturin]
+bindings = "pyo3"

@@ -5,7 +5,7 @@ edition = "2018"
 
 [dependencies]
 pyo3 = { version = "0.18", features = ["extension-module"] }
-ndarray = "0.15"
 
-[dev-dependencies]
-pyo3 = "0.18"
+[package.metadata.maturin]
+name = "rustyfresh"
+bindings = "pyo3"

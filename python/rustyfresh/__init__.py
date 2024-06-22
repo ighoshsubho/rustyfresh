@@ -1,1 +1,1 @@
-from ..rustyfresh import mean, variance, skewness, extract_features, rustyfresh
+from ..rustyfresh import mean, variance, skewness, extract_features
